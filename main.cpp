@@ -29,11 +29,21 @@ matrixf matrixMult(matrixf a, matrixf b){
     if(aCols != bRows) return {};
 
     matrixf resultant(bCols, vector<float>(aRows, 0.0f));
-
+/*
+A0 * Bx + A1 * Bx
+00 * 0x + 01 * 0x
+00 * 0x + 01 * 0x
+00 * 0x + 01 * 0x
+00 * 0x + 01 * 0x
+-----------------
+10 * 1x + 11 * 1x
+10 * 1x + 11 * 1x
+10 * 1x + 11 * 1x
+10 * 1x + 11 * 1x
+*/
     for(size_t row = 0; row < aRows; row++){
-        int result;
         for(size_t col = 0; col < bCols; col++){
-            result = (a[row][col] * b[row][col]) + (a[row][col] * b[row][col]);
+            cout<<a[row][0]<<"*"<<b[row][col]<<" + "<<a[row][1]<<"*"<<b[row][col]<<"\n";
         }
     }
 
@@ -61,7 +71,17 @@ int main(){
         {1,2,1,3},
         {1,1,2,1}
     };
-
+/*
+500 * 1 + 200 * 1
+500 * 2 + 200 * 2
+500 * 1 + 200 * 1
+500 * 3 + 200 * 3
+-----------------
+800 * 1 + 300 * 1
+800 * 1 + 300 * 1
+800 * 2 + 300 * 2
+800 * 1 + 300 * 1
+*/
     matrixf mult = matrixMult(a,b);
     matrixPrint(mult);
 
